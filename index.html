@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SAT Practice</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card">
+    <!-- Start screen -->
+    <section id="start-screen">
+      <h1>SAT Practice</h1>
+      <p class="subtitle">Answer the questions and find out right away if you got them right.</p>
+
+      <label for="name-input" class="label">What's your name? <span class="muted">(optional)</span></label>
+      <input id="name-input" type="text" placeholder="Your name" autocomplete="off">
+
+      <p class="label">Pick a subject:</p>
+      <div class="subject-grid">
+        <button class="subject-btn" data-subject="math">➗<span>Math</span></button>
+        <button class="subject-btn" data-subject="english">📖<span>Reading &amp; Writing</span></button>
+        <button class="subject-btn" data-subject="mixed">🎲<span>Mixed</span></button>
+      </div>
+
+      <label for="count-select" class="label">How many questions?</label>
+      <select id="count-select">
+        <option value="5">5</option>
+        <option value="10" selected>10</option>
+        <option value="all">All of them</option>
+      </select>
+    </section>
+
+    <!-- Quiz screen -->
+    <section id="quiz-screen" hidden>
+      <div class="quiz-header">
+        <span id="progress-text"></span>
+        <span id="score-text"></span>
+      </div>
+      <div class="progress-bar"><div id="progress-fill"></div></div>
+
+      <p id="topic" class="topic"></p>
+      <p id="prompt" class="prompt"></p>
+
+      <div id="choices" class="choices"></div>
+
+      <form id="input-form" class="input-form" hidden>
+        <input id="answer-input" type="text" inputmode="decimal" placeholder="Type your answer" autocomplete="off">
+        <button type="submit" class="primary">Check</button>
+      </form>
+
+      <div id="feedback" class="feedback" hidden role="status" aria-live="polite">
+        <p id="feedback-title" class="feedback-title"></p>
+        <p id="feedback-explanation"></p>
+      </div>
+
+      <button id="next-btn" class="primary next" hidden>Next question →</button>
+    </section>
+
+    <!-- Results screen -->
+    <section id="results-screen" hidden>
+      <h1 id="results-title"></h1>
+      <p id="results-score" class="big-score"></p>
+      <p id="results-message" class="subtitle"></p>
+
+      <h2>Review</h2>
+      <ol id="review-list" class="review-list"></ol>
+
+      <div class="results-actions">
+        <button id="retry-btn" class="primary">Try again</button>
+        <button id="home-btn" class="secondary">Choose another subject</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
